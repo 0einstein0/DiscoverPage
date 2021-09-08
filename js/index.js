@@ -187,11 +187,19 @@ $(document).ready(function() {
             }, 300);
         }, 400);
     });
-
-    $(document).on('click', '.selectMultiple > div .arrow, .selectMultiple > div span', function(e) {
-        $(this).parent().parent().toggleClass('open');
+    var toggler;
+    $(document).on('click', '.selectMultiple, .selectMultiple > div .arrow, .selectMultiple > div span', function(e) {
+        console.log(e.target.className);
+        if(e.target.nodeName=='SPAN' | e.target.className=='arrow' ){
+            toggler= $(this).parent().parent();
+        }
+       else{
+           toggler = $(this);
+       }
+       console.log(toggler);
+        toggler.toggleClass('open');
     });
-
+ 
 });
 
 
